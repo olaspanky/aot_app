@@ -11,7 +11,6 @@ import {useGetRiderDetailsQuery,useLazyGetUserDetailsQuery, useLazyGetRidersVeri
 import {setCurrentPagination} from "@/store/slice/paginationSlice" 
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import "../../shared/scrollbar.css"
 import CircularProgress from '@mui/material/CircularProgress';
 import { useActivateUserMutation, useDeleteUserMutation  } from '../../api/apiSlice';
 

@@ -156,7 +156,6 @@ import {useGetRiderDetailsQuery,useLazyGetUserDetailsQuery} from '../../api/apiS
 import {setCurrentPagination} from "@/store/slice/paginationSlice" 
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import "../../shared/scrollbar.css"
 import CircularProgress from '@mui/material/CircularProgress';
 import eye from "@/assets/eye.png"
 import Image from 'next/image';
