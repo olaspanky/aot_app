@@ -2,27 +2,39 @@
 
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { staff } from '../../../app/dash/data/disputedata';
+import { data } from '../../dash/data/disputedata';
+import { useSelector } from 'react-redux';
+import { DashboardPages } from '@/store/slice/dashboardSlice';
 import { useState } from 'react'
-import ModalComponent from './Modal';
-import bin from "@/assets/delete.png";
-import edit from "@/assets/edit.png";
-import Image from 'next/image';
-import AddstaffModal from './AddstaffModal';
+import ModalComponent from './Delmodal';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 
 
 
 
 const columns = [
-  { field: 'id', headerName: 'User Id', flex: 1 },
-  { field: 'name', headerName: 'Name',type:"string", flex: 1 },
-  { field: 'email', headerName: 'E-mail', flex: 1 },
- 
+  { field: 'id', headerName: 'User ID', width: 70 },
+  { field: 'date', headerName: 'Date',type:"string", width: 130 },
+  { field: 'name', headerName: 'Name', width: 130 },
+  {
+    field: 'email',
+    headerName: 'Email',
+    type: 'email',
+    width: 150,
+  },
   {
     field: 'phone',
-    headerName: 'Phone Number',
+    headerName: 'Phone No.',
+    type:"number",
+    width: 130,
+    
+  },
+  {
+    field: 'access',
+    headerName: 'Account ',
     type:"string",
-    flex: 1,
+    width: 70,
     renderCell: (params) => {
       // Change the color based on a certain condition
       const access = params.value;
@@ -36,15 +48,16 @@ const columns = [
     
     
   },
-  
-  { field: 'status', headerName: 'Role', flex: 1 },
 
 
+
+
+ 
   {
     
     field: 'actions',
-    headerName: 'Actions',
-    flex: 1,
+    headerName: '',
+    width: 50,
     renderCell: (params) => {
 
       const [openModal, setOpenModal] = useState(false);
@@ -65,19 +78,10 @@ const columns = [
         
       return (
         
-        <>
         <div className="">
-        <div className='flex gap-3'>
-        <div className='grid place-content-center w-[36px] h-[36px] bg-[#ff000035]'>
-        <Image src={bin} width="" height="" alt='image'/>
-        </div>
-        <div className='grid place-content-center w-[36px] h-[36px] bg-[#2455d242]'>
-        <Image src={edit} width="" height="" alt='image'/>
-        </div>
-
         
-       
-        </div>
+        <KeyboardArrowRightIcon onClick={() => handleRowClick(params)} data-toggle="modal" data-target="#myModal"/>
+        
 
           
           {openModal && selectedRowData?.id === params.row.id && (
@@ -87,10 +91,6 @@ const columns = [
        
 
         </div>
-          
-       
-
-        </>
 
 
         
@@ -101,15 +101,12 @@ const columns = [
       );
     },
   },
-
-];
-
+]
 
 
 
 
-
-export default function Staffs() {
+export default function Table() {
 
   const tableStyles = {
     border: 'none',
@@ -124,13 +121,28 @@ export default function Staffs() {
   };
 
 
+  const [customColumn,setCustomColumn]=React.useState(columns);
+  const [filter,setFilter]=React.useState("");
+  const currentPage=useSelector((state)=>state.dashboardState.currentPage);
 
+React.useEffect(()=>{
+if(currentPage == DashboardPages.INDIVIDUAL) {setCustomColumn([...columns,...additionalColumnData]);
+  setFilter("individual")
+}
+else setCustomColumn(columns);
+
+if(currentPage==DashboardPages.LOGISTICS_USERS) setFilter("user");
+if(currentPage==DashboardPages.COMPANY) setFilter("company");
+if(currentPage==DashboardPages.ALL_USERS) setFilter("");
+
+
+
+
+},[currentPage])
 
 
   return (
-    <div style={{}} className="h-auto w-[80vw]  text-[5px] cursor-pointer">
-            <div className='h-[100vh]'>
-
+    <div  className="h-auto w-[100%] text-[16px]">
       <DataGrid
       
       style={tableStyles}
@@ -139,9 +151,9 @@ export default function Staffs() {
         columnHeader: 'custom-column-header',
       }}
         className='text-[16px] h-full'
-        rows={staff}
-        columns={columns}
-        rowHeight={50}
+        rows={!!filter ? data.filter((item)=>item.access==filter) : data}
+        columns={customColumn}
+        rowHeight={40}
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 10},
@@ -149,9 +161,7 @@ export default function Staffs() {
         }}
         pageSizeOptions={[15]}
         
-        
       />
-      </div>
       <style>
         {`
         .custom-cell {
@@ -165,9 +175,7 @@ export default function Staffs() {
       </style>
 
      
-          <div className="grid place-content-center top-auto">
-          <AddstaffModal/>
-          </div>
+
       
     </div>
   );

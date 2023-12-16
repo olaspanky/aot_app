@@ -5,12 +5,13 @@ import { DashboardPages, setCurrentPage } from '@/store/slice/dashboardSlice';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import ModalComponent from './Modal';
 import { useGetDashboardQuery } from '../../api/apiSlice';
-import {useGetRiderDetailsQuery,useLazyGetUserDetailsQuery, useLazyGetRidersVerificationQuery} from '../../api/apiSlice';
+import {useGetRiderDetailsQuery,useLazyGetUserDetailsQuery} from '../../api/apiSlice';
+import {useGetCustomerDeliveryQuery} from '../../api/apiSlice';
 import {setCurrentPagination} from "@/store/slice/paginationSlice" 
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import "../../shared/scrollbar.css"
 import CircularProgress from '@mui/material/CircularProgress';
 import { useActivateUserMutation, useDeleteUserMutation  } from '../../api/apiSlice';
 
@@ -32,8 +33,8 @@ const PageNumber = ({ pageNumber, isSelected, onClick }) => (
 
 const columns = [
   { field: 'user_id', headerName: 'User ID', flex: 1 },
-  { field: 'created_at', headerName: 'Date', type: 'string', flex: 1 },
-  { field: 'name', headerName: 'Name', flex: 1,
+  { field: 'date', headerName: 'Date of Delivery', type: 'string', flex: 1 },
+  { field: 'item', headerName: 'Item', flex: 1,
   valueFormatter: (params) => {
     const originalValue = params.value || '';
     // Capitalize the first letter of each word
@@ -43,112 +44,24 @@ const columns = [
       .join(' ');
     return formattedValue;
   }, },
-  { field: 'email', headerName: 'Email', type: 'email', flex: 1,
-  valueFormatter: (params) => {
-    const originalValue = params.value || '';
-    // Capitalize the first letter of each word
-    const formattedValue = originalValue
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-    return formattedValue;
-  }, },
-  { field: 'phone_number', headerName: 'Phone No.', type: 'number', flex:1 },
+  
+  { field: 'from', headerName: 'From.', type: 'string', flex:1 },
+  { field: 'to', headerName: 'To.', type: 'string', flex:1 },
   {
-    field: 'type',
-    headerName: 'Account Type',
+    field: 'cost',
+    headerName: 'Amount',
+    type: 'string',
     flex:1,
-    valueFormatter: (params) => {
-      const originalValue = params.value || '';
-      // Capitalize the first letter of each word
-      const formattedValue = originalValue
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-      return formattedValue;
-    },
-    renderCell: (params) => {
-      // Change the color based on a certain condition
-      const access = params.value;
-      const color = "#FF7D00"
-
-      return (
-        <span style={{ color }}>{access}</span>
-      );
+    
+      
     },
   
     
-  },]
+  ,]
 
 const additionalColumnData = [
   // ... other 
-  {
-    field: 'actions',
-    headerName: 'Actions',
-    sortable: false,
-    flex:2,
-    renderCell: (params) => {
-      const userId = params.row.user_id;
-
-      console.log('params:', params); // Log the entire params object
-console.log('userId:', userId);   // Log the userId value
-    
-      const [activateUser, { isLoading: isActivating, isSuccess, isError: activateError }] = useActivateUserMutation();
-      const [deleteUser, { isLoading: isDeleting, isDeleted, isError: deleteError }] = useDeleteUserMutation();
-    
-      const handleActivateUser = () => {
-        if (window.confirm('Are you sure you want to verify this user?')) {
-          activateUser(userId);
-          setIsSuccess(true);
-        }
-      };
-    
-      const handleRejectUser = () => {
-        if (window.confirm('Are you sure you want to verify this user?')) {
-
-        deleteUser(userId);
-        }
-      };
-    
-      const buttonColorClass = isSuccess ? 'bg-[#00FF00]' : 'border-[#16BD31]';
-      const activationButtonColorClass = isSuccess ? 'bg-[#00FF00]' : 'border-[#16BD31]';
-      const rejectButtonColorClass = isDeleted ? 'bg-[#C21010]' : 'border-[#C21010]';
-    
-      return (
-        <div className="w-full">
-          <div className="flex gap-3">
-            <button
-              className={`rounded-lg border px-[1em] text-sm p-[2px] ${buttonColorClass}`}
-              onClick={handleActivateUser}
-              disabled={isActivating}
-            >
-              <h1 className={isSuccess ? 'text-white' : 'text-[#16BD31] text-[10px]'}>
-                {isSuccess ? 'Verified' : 'Verify'}
-              </h1>
-            </button>
-            <button
-              className="rounded-lg border bg-[#2455D2] px-[1em] text-sm p-[2px]"
-            >
-              <h1 className="text-white text-[10px]">Download</h1>
-            </button>
-            <button
-              className={`rounded-lg border bg-blue-500 px-[1em] text-sm p-[2px] ${rejectButtonColorClass}`}
-              onClick={handleRejectUser}
-              disabled={isDeleting}
-            >
-              <h1 className={isDeleted ? 'text-white' : 'text-white text-[10px]'}>
-                {isDeleted ? 'Deleted' : 'Reject'}
-              </h1>
-            </button>
-          </div>
-          {isActivating && <div>Loading activation...</div>}
-          {isDeleting && <div>Loading deletion...</div>}
-          {activateError && <div>Error during activation: {activateError.message}</div>}
-          {deleteError && <div>Error during deletion: {deleteError.message}</div>}
-        </div>
-      );
-    },
-  }
+  
     
 ];
 
@@ -160,7 +73,7 @@ export default function Usertable({ searchQuery,  }) {
   const currentPagination = useSelector((state) => state.paginationState.currentPagination);
 
 
-  const { data, error, isLoading } = useGetDashboardQuery({ page: currentPagination });
+  const { data, error, isLoading } = useGetCustomerDeliveryQuery({ page: currentPagination });
 
   const dispatch = useDispatch();
   const users = data?.data || [];
@@ -260,7 +173,7 @@ export default function Usertable({ searchQuery,  }) {
 
     if (!!searchQuery) {
       filteredUsersData = filteredUsersData.filter(
-        (item) => item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        (item) => item.item.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
     // Set the filtered users in state
@@ -294,8 +207,8 @@ console.log('filter:', filteredUsersState);
     borderRight: 'none',
   };
   return (
-    <div style={{}} className="h-auto w-[80vw]  text-[5px] cursor-pointer">
-      <div className='h-[65vh]'>
+    <div style={{}} className="h-auto  text-[5px] cursor-pointer">
+      <div className='h-[70vh]'>
       <DataGrid
   onRowClick={(params) => handleRowClick(params.row)}
   style={tableStyles}
