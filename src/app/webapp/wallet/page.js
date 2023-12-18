@@ -10,6 +10,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useState } from 'react'
 import { useWalletQuery } from '@/app/api/apiSlice'
 import ProtectedRoute2 from '@/app/components/Protectapp'
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 
@@ -32,7 +34,8 @@ const page = () => {
   console.log("wallet", walletData)
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className='w-full flex justify-center items-center'>      <CircularProgress />
+    </div>;
   }
 
   

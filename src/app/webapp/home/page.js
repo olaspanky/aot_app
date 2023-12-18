@@ -299,7 +299,7 @@ const handleMapData = (data) => {
 
   <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
     <div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-    <h1 className='text-xl font-bold p-5 ' onClick={handleBackClick}>Request Pickups</h1>
+    <h1 className='text-xl font-bold p-9 ' onClick={handleBackClick}>Request Pickups</h1>
     </div>
     <div className='grid grid-cols-12'> 
           <div className='col-span-8 '></div>
@@ -554,7 +554,7 @@ const handleMapData = (data) => {
 
 <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
 <div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-<h1 className='text-xl font-bold p-5'>Home</h1>
+<h1 className='text-xl font-bold p-9'>Home</h1>
 </div>
 <div className='mt-[70vh]'> 
 <div className=' w-full  grid place-content-center'>
@@ -586,7 +586,7 @@ const handleMapData = (data) => {
             transform: translateX(-300%);
           }
           100% {
-            transform: translateX(100%);
+            transform: translateX(70%);
           }
         }
 
@@ -632,7 +632,7 @@ const handleMapData = (data) => {
 
 <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
 <div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-<h1 className='text-xl font-bold p-5' onClick={handleBackClick}>Payment</h1>
+<h1 className='text-xl font-bold p-9' onClick={handleBackClick}>Payment</h1>
 </div>
 
 <div className='grid grid-cols-12'> 
