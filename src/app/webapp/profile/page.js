@@ -5,7 +5,6 @@ import cash from "../../../assets/cash.png"
 import cc from "../../../assets/cc.png"
 import Image from 'next/image'
 import {transactions} from "../../dash/data/disputedata"
-import "../../shared/scrollbar.css"
 import { CloudDownload, CloudUpload } from '@mui/icons-material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useState } from 'react'
