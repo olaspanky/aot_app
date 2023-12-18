@@ -2,12 +2,12 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import logo from '../../../../public/logo.png';
-import { useLoginMutation, useRequestPasswordResetMutation, useResetPasswordMutation } from '../../api/apiSlice';
+import logo from '../../public/logo.png';
+import { useLoginMutation, useRequestPasswordResetMutation, useResetPasswordMutation } from './api/apiSlice';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../../store/slice/userSlice';
-import truck from "../../../assets/logintruck.png"
+import { setUser } from '../store/slice/userSlice';
+import truck from "../assets/logintruck.png"
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
