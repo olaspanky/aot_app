@@ -100,7 +100,7 @@ const LoginPage = ({ user }) => {
   };
 
   return (
-    <div className=" grid grid-cols-2">
+    <div className=" grid md:grid-cols-2">
       <section className="md:col-span-1 w-full px-2 md:px-48 h-screen bg-white">
         <div className="mt-9">
           <Image src={logo} width="48" height="48" alt="logo" />
@@ -215,7 +215,7 @@ const LoginPage = ({ user }) => {
           </div>
         )}
       </section>
-      <section className='col-span-1 bg-[#FF7D00] grid place-content-center relative'>
+      <section className='hidden md:col-span-1 bg-[#FF7D00] place-content-center relative'>
   <div className='relative'>
     {/* Circle */}
     <div className='w-96 h-96 rounded-full bg-yellow-200'></div>
