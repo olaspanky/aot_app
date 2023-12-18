@@ -2,7 +2,7 @@
 "use client"
 import React from 'react';
 import { useSelector } from 'react-redux';
-import LoginForm from './components/Login'; // Adjust the path
+import LoginForm from './webapp/login'; // Adjust the path
 
 const LoginPage = () => {
   // Get the 'user' state from the Redux store using useSelector
