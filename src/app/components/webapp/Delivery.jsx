@@ -279,7 +279,6 @@ console.log('filter:', filteredUsersState);
         {`
           .custom-cell {
             border-bottom: none;
-            border-right: ;
           }
           .custom-column-header {
             border-right: none;
