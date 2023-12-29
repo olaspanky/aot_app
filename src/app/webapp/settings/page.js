@@ -9,21 +9,28 @@ import notify from "../../../assets/notify.png"
 
 const page = () => {
   const [uiState, setUiState] = useState('home');
+  const [isOn, setIsOn] = useState(false);
+  const [isOn1, setIsOn1] = useState(false);
+  const [isOn2, setIsOn2] = useState(false);
+
 
   const handleRequestClick = () => {
-    // Toggle the state when the button is clicked
     setUiState('password');
   };
 
   const handleBackClick = () => {
-    // Switch to the previous state when the back button is clicked
       setUiState('home');
   };
 
-  const [isOn, setIsOn] = useState(false);
 
   const handleToggle = () => {
     setIsOn((prevIsOn) => !prevIsOn);
+  };
+  const handleToggle1 = () => {
+    setIsOn1((prevIsOn) => !prevIsOn);
+  };
+  const handleToggle2 = () => {
+    setIsOn2((prevIsOn) => !prevIsOn);
   };
 
   return (
@@ -31,12 +38,13 @@ const page = () => {
          {uiState === 'home' && (
     <div >
       <div className=''>
-    <div className=' bg-white my-5 text-black'>
-    <h1 className='text-black font-semibold text-[32px] p-2'>Settings</h1>
+      <div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className='text-xl font-bold '>Settings</h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
     </div>
 
-    <div className='w-[80%] h-auto container px-3 md:px-5  border border-gray-200 shadow-lg p-9 '>
-       <section className=' mx-9 w-[50%] flex flex-col gap-5 '>
+    <div className='flex justify-center items-center container px-3 p-9 '>
+       <section className=' mx-9 w-[80%] lg:w-[25%] flex flex-col gap-5 '>
         <div className='flex flex-col w-full gap-2'>
             <h1>General</h1>
             <div className='border rounded-md border-[#CDCDCD] p-1 w-full grid grid-cols-12 justify-center items-center'>
@@ -64,12 +72,12 @@ const page = () => {
                 <div className='col-span-8'><h1>Hide Balance</h1></div>
                 <div className='col-span-2'>
                 <button
-      onClick={handleToggle}
-      className={`relative w-12 h-6 rounded-full ${isOn ? 'bg-yellow-500' : 'bg-[#cdcdcd]'} focus:outline-none`}
+      onClick={handleToggle1}
+      className={`relative w-12 h-6 rounded-full ${isOn1 ? 'bg-yellow-500' : 'bg-[#cdcdcd]'} focus:outline-none`}
     >
       <span
         className={`block w-6 h-6 rounded-full transform transition-transform ${
-          isOn ? 'translate-x-6' : 'translate-x-0'
+          isOn1 ? 'translate-x-6' : 'translate-x-0'
         } bg-white shadow-md`}
       ></span>
     </button>
@@ -83,12 +91,12 @@ const page = () => {
                 <div className='col-span-8'><h1>Face Verification</h1></div>
                 <div className='col-span-2'>
                 <button
-      onClick={handleToggle}
-      className={`relative w-12 h-6 rounded-full ${isOn ? 'bg-yellow-500' : 'bg-[#cdcdcd]'} focus:outline-none`}
+            onClick={handleToggle2}
+      className={`relative w-12 h-6 rounded-full ${isOn2 ? 'bg-yellow-500' : 'bg-[#cdcdcd]'} focus:outline-none`}
     >
       <span
         className={`block w-6 h-6 rounded-full transform transition-transform ${
-          isOn ? 'translate-x-6' : 'translate-x-0'
+          isOn2 ? 'translate-x-6' : 'translate-x-0'
         } bg-white shadow-md`}
       ></span>
     </button>
@@ -108,9 +116,9 @@ const page = () => {
         </div>
 
 
-        <div className='flex flex-col w-full  mt-5'>
+        <div className='flex flex-col w-full  mt-9'>
             <h1>Legal</h1>
-            <div className='border  rounded-tl-md rounded-tr-md border-[#CDCDCD] p-1 w-full grid grid-cols-12 justify-center items-center'>
+            <div className='border mt-2  rounded-tl-md rounded-tr-md border-[#CDCDCD] p-1 w-full grid grid-cols-12 justify-center items-center'>
                 <div className='col-span-2'><Image src={notify} width="" height=""/></div>
                 <div className='col-span-8'><h1>Terms and Conditions</h1></div>
                 <div className='col-span-2'>
@@ -127,7 +135,6 @@ const page = () => {
 
 
         <div className='flex flex-col w-full mt-5'>
-            <h1>Legal</h1>
             <div className='border rounded-tl-md rounded-tr-md border-[#CDCDCD] p-1 w-full grid grid-cols-12 justify-center items-center'>
                 <div className='col-span-2'><Image src={notify} width="" height=""/></div>
                 <div className='col-span-8'><h1>Logout</h1></div>
@@ -137,7 +144,7 @@ const page = () => {
 
             <div className='border rounded-bl-md rounded-br-md border-[#CDCDCD] p-1 w-full grid grid-cols-12 justify-center items-center'>
                 <div className='col-span-2'><Image src={notify} width="" height=""/></div>
-                <div className='col-span-8'><h1>Delete Account</h1></div>
+                <div className='col-span-8 text-red-500'><h1>Delete Account</h1></div>
                 <div className='col-span-2'>
                 </div>
             </div>

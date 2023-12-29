@@ -46,12 +46,13 @@ const page = () => {
     <ProtectedRoute2>
     <Layout>
     {uiState === 'home' && ( <div >
-      <div className=''>
-      <div className='m-5 border border-gray-200  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-    <h1 className='text-xl font-bold p-5 ' onClick={handleBackClick}>Request Pickups</h1>
+      <div className='h-full overflow-hidden'>
+      <div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className='text-xl font-bold '>Wallet</h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
     </div>
 
-    <div className='w-full h-[100vh] container overflow-y-scroll px-3 md:px-36 border border-gray-200 shadow-lg grid flex flex-col justify-center p-3 '>
+    <div className='w-full px-3 md:px-3 shadow-lg grid flex flex-col justify-center p-3 '>
         <div className='flex flex-col gap-5'>
         <div className=' bg-[#FF7D00] shadow-lg flex justify-center items-center text-center flex-col gap-[5em] py-5 rounded-lg'>
             <div className='flex flex-grow flex-col gap-2 w-96 px-36 text-white '>
@@ -137,12 +138,13 @@ const page = () => {
 
     {uiState === 'addCard' && (
       <div >
-      <div className=''>
-    <div className=' bg-white my-5 text-black'>
-    <h1 className='text-black font-semibold text-[32px] p-2'>Wallet</h1>
+      <div className='h-full overflow-hidden '>
+      <div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className='text-xl font-bold '>Wallet</h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
     </div>
 
-    <div className='w-[80%] h-[100vh] container overflow-y-scroll px-3 md:px-36 h-screen border border-gray-200 shadow-lg grid flex flex-col justify-center p-3 '>
+    <div className='w-full px-3 md:px-3 shadow-lg grid flex flex-col justify-center p-3  '>
     <div className='flex flex-col gap-10 items-center my-7'>
       <div className='flex flex-col gap-5 text-center'>
       <h1 className='font-bold text-[18px]'>Add Card</h1>
@@ -168,7 +170,7 @@ const page = () => {
 
       <div className='w-full mt-9'>
       <button className='w-full rounded-lg text-white p-3 bg-[#FF7D00] text-center'>
-      <h1>sign in</h1>
+      <h1>Add</h1>
       </button>
       </div>
       </section>

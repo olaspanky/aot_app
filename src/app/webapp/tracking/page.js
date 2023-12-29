@@ -118,9 +118,10 @@ const page = () => {
 </div>
 
 <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
-<div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-<h1 className='text-xl font-bold p-5 '>Tracking</h1>
-</div>
+<div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className='text-xl font-bold  '>Tracking</h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
+    </div>
 <div className='grid grid-cols-12'> 
 <div className='col-span-8 '></div>
 <div className='col-span-4 '>

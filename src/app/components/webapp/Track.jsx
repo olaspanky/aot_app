@@ -18,15 +18,12 @@ export default function Table({ duration }) {
     
     
 
-  // Check if the data is still loading or if there's an error
   
 
   useEffect(() => {
-    // Convert the duration string to minutes
     const parsedDuration = parseDuration(duration);
     setRemainingMinutes(parsedDuration);
 
-    // Start the countdown timer
     const interval = setInterval(() => {
       setRemainingMinutes((prevMinutes) => {
         if (prevMinutes > 0) {
@@ -35,22 +32,20 @@ export default function Table({ duration }) {
         clearInterval(interval);
         return 0;
       });
-    }, 60000); // Update every minute (60,000 milliseconds)
+    }, 60000); 
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval); 
   }, [duration]);
 
   const parseDuration = (durationString) => {
-    // Split the duration string into segments
     const segments = durationString.split(' ');
   
     let totalMinutes = 0;
     for (let i = 0; i < segments.length; i++) {
-      // Check if the segment is 'hour(s)' or 'min(s)'
       if (segments[i] === 'hour' || segments[i] === 'hours') {
-        totalMinutes += parseInt(segments[i - 1]) * 60; // Convert hours to minutes
+        totalMinutes += parseInt(segments[i - 1]) * 60; 
       } else if (segments[i] === 'min' || segments[i] === 'mins') {
-        totalMinutes += parseInt(segments[i - 1]); // Add minutes
+        totalMinutes += parseInt(segments[i - 1]); 
       }
     }
   

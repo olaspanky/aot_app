@@ -298,18 +298,19 @@ const handleMapData = (data) => {
   </div>
 
   <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
-    <div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-    <h1 className='text-xl font-bold p-9 ' onClick={handleBackClick}>Request Pickups</h1>
+  <div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className='text-xl font-bold '>Request Pickup </h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
     </div>
     <div className='grid grid-cols-12'> 
           <div className='col-span-8 '></div>
           <div className='col-span-4 '>
             
-          <div className='bg-white p-8 rounded-lg w-[400px]'>
+          <div className='bg-white p-8 rounded-lg w-[400px] h-[80vh] overflow-hidden mt-5 '>
         <div className='flex-grow flex py-3 flex-col gap-9  '>
 <div className=''>
 <div className='flex flex-col gap-3'>
-      <div className='w-full px-5 grid grid-cols-12 flex space py-2 px-5 rounded-sm around bg-[#d4d4d4]'>
+      <div className='w-full  grid grid-cols-12  space py-2 px-5 rounded-sm around bg-[#d4d4d4]'>
         <div className='col-span-1'><Image src={delv1} /></div>
         <div
           className='col-span-11 flex justify-between font-bold'
@@ -394,12 +395,11 @@ const handleMapData = (data) => {
               </div>
               
              
-              {/* Repeat for other fields */}
             </form>
         </div>
       )}
 
-      <div className='w-full px-5 grid grid-cols-12 flex space py-2 px-5 rounded-sm around bg-[#d4d4d4]'>
+      <div className='w-full px-5 grid grid-cols-12 flex space py-2 rounded-sm around bg-[#d4d4d4]'>
         <div className='col-span-1'><Image src={delv2} /></div>
         <div
           className='col-span-11 flex justify-between font-bold'
@@ -511,7 +511,7 @@ const handleMapData = (data) => {
       </div>
     </div>
 
-    <div className='footer w-full  grid place-content-center'>
+    <div className='footer mt-48 w-full  grid place-content-center'>
       <button onClick={handleProceedToPay}
   disabled={isButtonDisabled} className='  grid grid-cols-12 items-center  bottom-2 m-3 rounded-lg border bg-[#ff7d00] py-3 px-20 text-[16px] text-white text-center'>
       <h1 className='col-span-11'>Proceed to Pay</h1>
@@ -553,9 +553,10 @@ const handleMapData = (data) => {
 </div>
 
 <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
-<div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-<h1 className='text-xl font-bold p-9'>Home</h1>
-</div>
+<div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className='text-xl font-bold '>Home</h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
+    </div>
 <div className='mt-[70vh]'> 
 <div className=' w-full  grid place-content-center'>
 <button
@@ -631,9 +632,10 @@ const handleMapData = (data) => {
 </div>
 
 <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
-<div className='mt-5  h-12 bg-white col-span-1 ml-5 mr-5 rounded-lg flex items-center'> 
-<h1 className='text-xl font-bold p-9' onClick={handleBackClick}>Payment</h1>
-</div>
+<div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
+    <h1 onClick={handleBackClick} className='text-xl font-bold  '>Wallet</h1>
+    <div className='rounded-full p-3 bg-slate-200 '>pix</div>
+    </div>
 
 <div className='grid grid-cols-12'> 
 <div className='col-span-8 '></div>

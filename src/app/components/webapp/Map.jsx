@@ -32,12 +32,10 @@ const Map = ({ recipientAddress, senderAddress, onMapDataChange }) => {
     setDistance(storedData.distance || '');
     setDuration(storedData.duration || '');
   
-    // Check if originRef.current is defined before setting its value
     if (originRef.current) {
       originRef.current.value = storedData.originValue || '';
     }
   
-    // Check if destinationRef.current is defined before setting its value
     if (destinationRef.current) {
       destinationRef.current.value = storedData.destinationValue || '';
     }

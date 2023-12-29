@@ -215,7 +215,7 @@ const LoginPage = ({ user }) => {
           </div>
         )}
       </section>
-      <section className='hidden md:col-span-1 bg-[#FF7D00] place-content-center relative'>
+      <section className='hidden md:grid col-span-1 bg-[#FF7D00] place-content-center relative'>
   <div className='relative'>
     {/* Circle */}
     <div className='w-96 h-96 rounded-full bg-yellow-200'></div>
