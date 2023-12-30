@@ -513,7 +513,7 @@ const handleMapData = (data) => {
 
     <div className='footer mt-48 w-full  grid place-content-center'>
       <button onClick={handleProceedToPay}
-  disabled={isButtonDisabled} className='  grid grid-cols-12 items-center  bottom-2 m-3 rounded-lg border bg-[#ff7d00] py-3 px-20 text-[16px] text-white text-center'>
+  disabled={isButtonDisabled} className='  grid grid-cols-12 items-center  bottom-2 m-3 rounded-lg border bg-[#ff7d00] py-3 px-2 md:px-9 lg:px-20 text-md text-white text-center'>
       <h1 className='col-span-11'>Proceed to Pay</h1>
       </button>
       </div>
