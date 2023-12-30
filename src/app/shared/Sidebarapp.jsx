@@ -38,12 +38,12 @@ const Sidebar = () => {
     <div className="flex bg-[#FF7D00] shadow-md">
       <div
         className={`${
-          open ? 'w-72' : 'w-20 '
+          open ? 'lg:w-72 w-20' : 'w-20'
         } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
       >
         <div
           className={`cursor-pointer top-0 rounded-full ${!open ? 'rotate-180' : ''} ${
-            open ? 'w-[60px]' : ''
+            open ? 'lg:w-[60px]' : ''
           } `}
           onClick={() => setOpen(!open)}
         >
@@ -54,9 +54,9 @@ const Sidebar = () => {
             <Image src={vect} alt="" width={20} height={20} />
           </div>
           <div className="flex flex-col text-center">
-            <span className={`${open ? '' : 'hidden'} text-white text-[20px]`}>{username}</span>
+            <span className={`${open ? 'hidden lg:flex' : 'hidden'} text-white text-[20px]`}>{username}</span>
             <Link href="/webapp/profile">
-            <span className={`${open ? '' : 'hidden'} text-white text-[14px] ${currentRoute === "/webapp/profile" ? 'text-[#FFE5CC]' : ''}`}>view profile</span>
+            <span className={`${open ? 'hidden lg:flex' : 'hidden'} text-white text-[14px] ${currentRoute === "/webapp/profile" ? 'text-[#FFE5CC]' : ''}`}>view profile</span>
             </Link>
         
           </div>
@@ -66,13 +66,13 @@ const Sidebar = () => {
             <li
               key={index}
               className={`flex rounded-md p-2  cursor-pointer hover:text-[#FFE5CC] text-white text-[16px] items-center gap-x-6 ${
-                open ? 'ml-[20%]' : ''
+                open ? 'lg:ml-[20%]' : ''
               } ${currentRoute === Menu.path ? 'bg-[#FFE5CC]' : ''}`}
             >
               <Link href={Menu.link}>
                 <div className="flex gap-3 items-center p-1">
                   <Image src={Menu.src} width={20} height={20} alt="image" />
-                  <span className={`${!open && 'hidden'} origin-left duration-200`}>
+                  <span className={`${open ? 'lg:flex hidden' : 'hidden'} origin-left duration-200`}>
                     {Menu.title}
                   </span>
                 </div>

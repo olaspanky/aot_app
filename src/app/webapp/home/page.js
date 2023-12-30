@@ -297,16 +297,16 @@ const handleMapData = (data) => {
 />
   </div>
 
-  <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] '>
-  <div className='mt-5  h-12 bg-white col-span-1 border border-gray-200 ml-5 mr-5 rounded-lg flex items-center p-7 justify-between'> 
-    <h1 className='text-xl font-bold '>Request Pickup </h1>
+  <div className='grid grid-cols-1 absolute top-0 w-full h-[80%] ml-5 mr-5'>
+  <div className='mt-5  h-12 bg-white col-span-1 border border-gray-200  rounded-lg flex items-center p-7 justify-between'> 
+    <h1 className=' text-sm md:text-xl font-bold '>Request Pickup </h1>
     <div className='rounded-full p-3 bg-slate-200 '>pix</div>
     </div>
-    <div className='grid grid-cols-12'> 
-          <div className='col-span-8 '></div>
-          <div className='col-span-4 '>
+    <div className='grid md:grid-cols-12'> 
+          <div className='md:col-span-8 '></div>
+          <div className='md:col-span-4 col-span-12 '>
             
-          <div className='bg-white p-8 rounded-lg w-[400px] h-[80vh] overflow-hidden mt-5 '>
+          <div className='bg-white p-8 rounded-lg w-full h-[80vh] overflow-hidden mt-5 '>
         <div className='flex-grow flex py-3 flex-col gap-9  '>
 <div className=''>
 <div className='flex flex-col gap-3'>
@@ -326,7 +326,7 @@ const handleMapData = (data) => {
           }}
         >
           <h1>Pickup Details</h1>
-          <p className='text-[24px] text-[#FF7D00'>{pickupDropdownVisible ? '-' : '+'}</p>
+          <p className='text-md lg:text-[24px] text-[#FF7D00'>{pickupDropdownVisible ? '-' : '+'}</p>
         </div>
       </div>
 
@@ -345,7 +345,7 @@ const handleMapData = (data) => {
                 placeholder='Sender Name'
               />
               </div>
-              <div className='grid grid-cols-12 flex w-full gap-2 py-3'>
+              <div className='grid grid-cols-12 w-full gap-2 py-3'>
               <label className="col-span-3 text-sm font-semibold">Phone:</label>
               <input
                 type="tel"
@@ -486,23 +486,23 @@ const handleMapData = (data) => {
 </div>
 
     {/*icons */}
-    <div className='grid px-5 place-content-center space-between grid-cols-12'>
+    <div className=' flex flex-wrap  justify-around px-5 place-content-center space-between'>
         <div
-          className={`col-span-4 h-[120px] w-[90px] border grid place-content-center`}
+          className={` h-[120px] w-[90px] border grid place-content-center`}
           style={getVehicleStyles('bike')}
           onClick={() => handleVehicleClick('bike')}
         >
           <Image src={bike} alt="" width="" height="" />
         </div>
         <div
-          className={`col-span-4 h-[120px] w-[90px] border grid place-content-center`}
+          className={` h-[120px] w-[90px] border grid place-content-center`}
           style={getVehicleStyles('car')}
           onClick={() => handleVehicleClick('car')}
         >
           <Image src={car} alt="" width="" height="" />
         </div>
         <div
-          className={`col-span-4 h-[120px] w-[90px] border grid place-content-center`}
+          className={` h-[120px] w-[90px] border grid place-content-center`}
           style={getVehicleStyles('truck')}
           onClick={() => handleVehicleClick('truck')}
         >
