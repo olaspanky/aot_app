@@ -8,6 +8,8 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
 import truck from "../../../assets/registertruck.png"
+import Link from 'next/link';
+
 
 
 const Page = () => {
@@ -207,7 +209,9 @@ const Page = () => {
                 </div>
 
                 <div>
+                  <Link href="webapp/login">
                   <h1 className="text-right my-3">Already have an account? Sign In</h1>
+                  </Link>
                 </div>
               </section>
             </Form>

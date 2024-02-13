@@ -10,6 +10,8 @@ import { setUser } from '../store/slice/userSlice';
 import truck from "../assets/logintruck.png"
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Link from 'next/link';
+
 
 const LoginPage = ({ user }) => {
   const dispatch = useDispatch();
