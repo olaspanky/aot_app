@@ -5,6 +5,7 @@ import Layout from "../../shared/Layout3"
 import map from "../../../../public/map.png"
 import { useState } from 'react'
 import Track from '@/app/components/webapp/Track2'
+import Rating from '@/app/components/webapp/Rating'
 
 const page = () => {
     
@@ -35,6 +36,7 @@ const page = () => {
 
 
 <Track/>
+<Rating/>
 
 
 

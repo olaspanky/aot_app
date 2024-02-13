@@ -101,7 +101,7 @@ const LoginPage = ({ user }) => {
 
   return (
     <div className=" grid grid-cols-2">
-      <section className="md:col-span-1 w-full px-2 md:px-48 h-screen bg-white">
+      <section className="lg:col-span-1 w-full px-2 md:px-48 h-screen bg-white">
         <div className="mt-9">
           <Image src={logo} width="48" height="48" alt="logo" />
         </div>

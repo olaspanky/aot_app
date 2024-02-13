@@ -5,6 +5,7 @@ import disputeReducer from "./slice/disputeSlice";
 import promotionsReducer from "./slice/promotionsSlice";
 import tableReducer from "./slice/faqSlice";
 import searchReducer from './slice/searchSlice';
+import orderReducer from "./slice/orderSlice"
 import api from '@/app/api/apiSlice';
 import paginationReducer from './slice/paginationSlice'; // Update with the actual path
 
@@ -17,6 +18,7 @@ export const store = configureStore({
     tableData: tableReducer,
     search: searchReducer,
     user: userReducer, // Add the user reducer
+    orderData: orderReducer,
     [api.reducerPath]: api.reducer, // Add RTK Query reducer
     paginationState: paginationReducer,
 

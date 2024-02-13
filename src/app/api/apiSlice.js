@@ -350,6 +350,77 @@ const api = createApi({
         console.log("Get Tracking Orders success:", response);
       },
     }),
+
+    getSavedCards: builder.query({
+      query: () => ({
+        url: "/v1/customer/saved-cards",
+        method: "GET",
+      }),
+      onError: (error) => {
+        console.error("Get Saved Cards error:", error);
+      },
+      onSuccess: (response) => {
+        console.log("Get Saved Cards success:", response);
+      },
+    }),
+
+   
+//
+//
+//
+// *****savecard endpoint******//
+//
+    saveCard: builder.mutation({
+      query: () => ({
+        url: '/v1/customer/saved-cards/add',
+        method: 'GET',
+      }),
+      onError: (error) => {
+        console.error('Save Card error:', error);
+      },
+      onSuccess: (response) => {
+        console.log('Save Card success:', response);
+      },
+    }),
+
+    getCardList: builder.query({
+      query: () => ({
+        url: "/v1/customer/saved-cards",
+        method: "GET"
+      }),
+      onError: (error) => {
+        console.error("Get Saved Card:", error);
+      },
+      onSuccess: (response) => {
+        console.log("Get Card List:", response)
+      }
+    }),
+    getDeleteSavedCards: builder.query({
+      query: () => ({
+        url: "/v1/customer/saved-cards/remove",
+        method: "DELETE",
+      }),
+      onError: (error) => {
+        console.error("Delete Saved Cards:", error)
+      },
+      onSuccess: (response) => {
+        console.log("Delete Saved Cards:", response)
+      }
+    }),
+
+    rateOrder: builder.mutation({
+      query: (body) => ({
+        url: "/v1/customer/order/rating",
+        method: "POST",
+        body,
+      }),
+      onError: (error) => {
+        console.error("Rate Order mutation error:", error);
+      },
+      onSuccess: (response) => {
+        console.log("Rate Order mutation success:", response);
+      },
+    }),
   }),
 });
 
@@ -385,6 +456,11 @@ export const {
   useGetRidersVerificationQuery,
   useLazyGetRidersVerificationQuery,
   useGetTrackingOrdersQuery,
+  useSaveCardMutation,
+  useGetSavedCardsQuery,
+  useGetCardListQuery,
+  useGetDeleteSavedCardsQuery,
+  useRateOrderMutation,
 } = api;
 
 export default api;

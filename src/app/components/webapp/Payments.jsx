@@ -8,6 +8,8 @@ import wallet from "../../../assets/wallet.png"
 import cc from "../../../assets/cc.png"
 import Link from 'next/link'
 import { useMakeCardPaymentMutation } from '@/app/api/apiSlice'
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 
@@ -15,14 +17,20 @@ import { useMakeCardPaymentMutation } from '@/app/api/apiSlice'
 // Modal component for cash on delivery
 const CashOnDeliveryModal = ({ isOpen, onClose }) => {
     const [makeCardPayment, { isLoading, isError, isSuccess, error, data }] = useMakeCardPaymentMutation();
+    const orderStatus = useSelector((state) => state.orderData.orderStatus);
+    const orderID = orderStatus?.data?.data?.orderId
+
+    console.log("orderlist", orderStatus)
+    console.log("orderID", orderID)
+
 
     const handleCashOnDeliveryPayment = async () => {
       try {
         const paymentMethodData = {
-          cardId: "", // Fill in the card ID if required for your logic
+          cardId: "",
           payment_method: 'cash-on-delivery',
-          order_id: "", // Fill in the order ID if required for your logic
-          save_card: "", // Fill in the save_card if required for your logic
+          order_id: orderID, 
+          save_card: "", 
         };
   
         const response = await makeCardPayment(paymentMethodData);
@@ -64,7 +72,7 @@ const WalletModal = ({ isOpen, onClose }) => {
       const paymentMethodData = {
         cardId: "", // Fill in the card ID if required for your logic
         payment_method: 'wallet',
-        order_id: "", // Fill in the order ID if required for your logic
+        order_id: orderID, 
         save_card: "", // Fill in the save_card if required for your logic
       };
 
@@ -108,7 +116,7 @@ const CardModal = ({ isOpen, onClose }) => {
       const paymentMethodData = {
         cardId: "", // Fill in the card ID if required for your logic
         payment_method: 'wallet',
-        order_id: "", // Fill in the order ID if required for your logic
+        order_id: orderID, 
         save_card: rememberCard, // Use the rememberCard state value
       };
 

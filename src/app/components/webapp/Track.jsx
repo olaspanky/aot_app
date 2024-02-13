@@ -11,6 +11,7 @@ import group from "../../../assets/group.png"
 import email from '../../../assets/wallet.png'
 
 
+
 export default function Table({ duration }) {
   const [currentPage, setCurrentPage] = useState("tracking");
   const handleGoodsPickedClick = () => {
@@ -21,17 +22,14 @@ export default function Table({ duration }) {
     setCurrentPage("tracking");
   };
 
+
+
+
+
   const [remainingMinutes, setRemainingMinutes] = useState(0);
 
-  const { data, isLoading, isError } = useGetTrackingOrdersQuery();
-  console.log("data is:", data?.data[0]);
-  console.log("Cost:", data?.data[0].cost);
-  console.log("Date:", data?.data[0].date);
-  console.log("From:", data?.data[0].from);
-  console.log("ID:", data?.data[0].id);
-  console.log("Item:", data?.data[0].item);
-  console.log("To:", data?.data[0].to);
-  console.log("Vehicle:", data?.data[0].vehicle);
+  const {data, isLoading, isError } = useGetTrackingOrdersQuery();
+
 
   useEffect(() => {
     const parsedDuration = parseDuration(duration);
@@ -73,7 +71,7 @@ export default function Table({ duration }) {
     return <div>Error fetching data</div>;
   }
 
-  if (!data) {
+  if (!data?.data[0]) {
     return <div>No order to track</div>;
   }
 
@@ -91,7 +89,7 @@ export default function Table({ duration }) {
 
             <div>
               <h1 className="text-[16px]">
-                {data?.data[0].vehicle} <span className="font-bold">BEN193US</span>
+                {data?.data[0].vehicle}  <span className="font-bold">BEN193US</span>
               </h1>
             </div>
 
@@ -168,7 +166,7 @@ export default function Table({ duration }) {
             {/* street names */}
             <div className='col-span-5 flex flex-col justify-between'>
             <div><h2 className='text-sm font-normal '>{data?.data[0].from}</h2></div>
-            <div><h2 className='text-sm font-normal'>{data?.data[0].to}</h2></div>
+            <div><h2 className='text-sm font-normal'>{data?.data[0].cost.to}</h2></div>
             </div>
             </div>
             {/* Goods delivered */}
