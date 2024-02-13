@@ -60,10 +60,10 @@ const Page = () => {
 
   return (
     <div
-      className="h-full flex  grid grid-cols-2 bg-center "
+      className="h-full flex w-full lg:grid lg:grid-cols-2 bg-center "
       
     >
-      <section className="col-span-1 md:px-48 h-full bg-white">
+      <section className="lg:col-span-1 w-full p-3 lg:px-48 h-full bg-white">
         <div className="mt-3">
           <Image src={logo} width="48" height="48" alt="logo" />
         </div>
@@ -209,9 +209,8 @@ const Page = () => {
                 </div>
 
                 <div>
-                  <Link href="webapp/login">
+                  <Link href="webapp/login"></Link>
                   <h1 className="text-right my-3">Already have an account? Sign In</h1>
-                  </Link>
                 </div>
               </section>
             </Form>
@@ -219,7 +218,7 @@ const Page = () => {
         </section>
       </section>
 
-      <section className='col-span-1 bg-[#FF7D00] grid place-content-center relative'>
+      <section className='hidden lg:grid lg:col-span-1 bg-[#FF7D00]  place-content-center relative'>
   <div className='relative'>
     {/* Circle */}
     <div className='w-96 h-96 rounded-full bg-yellow-200'></div>
