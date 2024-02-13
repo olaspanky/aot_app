@@ -570,7 +570,7 @@ const page = () => {
                           </div>
 
                           {/*icons */}
-                          <div className=" flex flex-wrap  justify-around px-5 place-content-center space-between">
+                          <div className=" flex flex-wrap p-2  justify-around px-5 place-content-center space-between">
                             <div
                               className={` h-[120px] w-[90px] border grid place-content-center`}
                               style={getVehicleStyles("bike")}

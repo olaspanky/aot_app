@@ -174,7 +174,9 @@ const LoginPage = ({ user }) => {
             </div>
 
             <div>
+              <Link href="webapp/signup">
               <h1 className="text-right my-[16px]">Don’t have an account? Sign Up</h1>
+              </Link>
             </div>
           </section>
         </form>
