@@ -178,15 +178,7 @@ const Page = () => {
               </div>
 
               {/* remember */}
-              <section className="mt-2 flex text-[12px] justify-between text-black">
-                <div className="flex gap-1">
-                  <input type="checkbox" />
-                  <h2>Remember</h2>
-                </div>
-                <div>
-                  <h2>Forgot Password?</h2>
-                </div>
-              </section>
+             
 
               {/* buttons */}
               <section className="mt-3 flex flex-col gap-3 text-[12px]">
