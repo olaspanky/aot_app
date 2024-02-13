@@ -209,8 +209,9 @@ const Page = () => {
                 </div>
 
                 <div>
-                  <Link href="webapp/login"></Link>
+                  <Link href="/webapp/login">
                   <h1 className="text-right my-3">Already have an account? Sign In</h1>
+                  </Link>
                 </div>
               </section>
             </Form>

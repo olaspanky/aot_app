@@ -26,30 +26,36 @@ const LoginPage = ({ user }) => {
   const [loginError, setLoginError] = useState(null); // State to hold login error
 
 
+  const [signingIn, setSigningIn] = useState(false);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setSigningIn(true); // Set signingIn to true when starting the sign-in process
+
     const formData = new FormData(event.target);
     const email = formData.get('email');
     const password = formData.get('password');
     const device_name = formData.get('device_name') || 'web';
-  
+
     try {
       const loginData = { email, password, device_name };
       const response = await login(loginData);
-  
-      console.log('API Response:', response); // Log the entire response object
-  
+
+      console.log('API Response:', response);
+
       if (response.data && response.data.data.token) {
         localStorage.setItem('auth_token', response.data.data.token);
         dispatch(setUser(response.data.data));
         router.push('/webapp/home');
       } else {
         console.error('Token not received.');
-        setLoginError(response.error.data.message)
+        setLoginError(response.error.data.message);
       }
     } catch (error) {
       console.error('Login error:', error);
       console.error('Response:', error.response);
+    } finally {
+      setSigningIn(false); // Set signingIn to false when sign-in process is completed
     }
   };
   
@@ -161,7 +167,7 @@ const LoginPage = ({ user }) => {
           <section className="mt-[37px] text-[12px]">
             <div>
               <button className="w-full rounded-lg text-white p-3 text-[16px] bg-[#FF7D00] text-center">
-                <h1>Sign in</h1>
+              <h1>{signingIn ? 'Signing in...' : 'Sign in'}</h1>
               </button>
             </div>
 
